@@ -1,5 +1,7 @@
 ﻿using Electrician_Dictionary.API;
 using Electrician_Dictionary.ElecDictionary;
+using Microsoft.VisualBasic.Devices;
+using OpenAI_API.Moderation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,14 +24,14 @@ namespace Electrician_Dictionary
         private void StartForm_Load(object sender, EventArgs e)
         {
 
-            if (this.ShowDialog() == DialogResult.OK)
-            {
-                this.Close();
-                Application.Run(new InformationFind());
-            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
+        {
+            LinkStart();
+        }
+
+        private void LinkStart()
         {
             if (string.IsNullOrWhiteSpace(txtKeyInsert.Text))
             {
@@ -39,15 +41,15 @@ namespace Electrician_Dictionary
 
             Link_ChatAPI.KeySetting(txtKeyInsert.Text);
             Link_ChatAPI.Link();
-
-            //InformationFind showform = new InformationFind();
-            //showform.Show();
-            check = true;
-            if (check)
-            {
-                this.DialogResult = DialogResult.OK;
-            }
+            Link_ChatAPI.startForm = this;
         }
 
+        private void txtKeyInsert_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LinkStart();
+            }
+        }
     }
 }

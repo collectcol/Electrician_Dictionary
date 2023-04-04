@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnRequest = new Button();
             txtQuestion = new TextBox();
             txtAnswer = new TextBox();
-            btnRequest = new Button();
             SuspendLayout();
+            // 
+            // btnRequest
+            // 
+            btnRequest.Location = new Point(291, 390);
+            btnRequest.Name = "btnRequest";
+            btnRequest.Size = new Size(205, 27);
+            btnRequest.TabIndex = 5;
+            btnRequest.Text = "질문하기";
+            btnRequest.UseVisualStyleBackColor = true;
+            btnRequest.Click += btnRequest_Click;
             // 
             // txtQuestion
             // 
@@ -39,26 +49,15 @@
             txtQuestion.Multiline = true;
             txtQuestion.Name = "txtQuestion";
             txtQuestion.Size = new Size(347, 346);
-            txtQuestion.TabIndex = 0;
-            txtQuestion.KeyDown += txtQuestion_KeyDown;
+            txtQuestion.TabIndex = 3;
             // 
             // txtAnswer
             // 
-            txtAnswer.Location = new Point(426, 12);
+            txtAnswer.Location = new Point(441, 12);
             txtAnswer.Multiline = true;
             txtAnswer.Name = "txtAnswer";
             txtAnswer.Size = new Size(347, 346);
-            txtAnswer.TabIndex = 1;
-            // 
-            // btnRequest
-            // 
-            btnRequest.Location = new Point(292, 393);
-            btnRequest.Name = "btnRequest";
-            btnRequest.Size = new Size(205, 27);
-            btnRequest.TabIndex = 2;
-            btnRequest.Text = "질문하기";
-            btnRequest.UseVisualStyleBackColor = true;
-            btnRequest.Click += btnRequest_Click;
+            txtAnswer.TabIndex = 4;
             // 
             // InformationFind
             // 
@@ -66,8 +65,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnRequest);
-            Controls.Add(txtAnswer);
             Controls.Add(txtQuestion);
+            Controls.Add(txtAnswer);
             Name = "InformationFind";
             Text = "InformationFind";
             Load += InformationFind_Load;
@@ -76,9 +75,8 @@
         }
 
         #endregion
-
         private TextBox txtQuestion;
-        private TextBox txtAnswer;
         private Button btnRequest;
+        private TextBox txtAnswer;
     }
 }

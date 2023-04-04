@@ -20,17 +20,10 @@ namespace Electrician_Dictionary.ElecDictionary
 
         private void InformationFind_Load(object sender, EventArgs e)
         {
-            StartForm form = new StartForm();
-
-            DialogResult Result = form.ShowDialog();
-
-            if (Result != DialogResult.OK)
-            {
-                this.Close();
-            }
 
         }
-        private void btnRequest_Click(object sender, EventArgs e)
+
+        private void response()
         {
             if (string.IsNullOrWhiteSpace(txtQuestion.Text.ToString())) return;
 
@@ -41,10 +34,9 @@ namespace Electrician_Dictionary.ElecDictionary
             txtAnswer.Text = response;
         }
 
-        private void txtQuestion_KeyDown(object sender, KeyEventArgs e)
+        private void btnRequest_Click(object sender, EventArgs e)
         {
-            btnRequest.PerformClick();
+            response();
         }
-
     }
 }

@@ -34,7 +34,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(297, 365);
+            btnLogin.Location = new Point(277, 332);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(234, 62);
             btnLogin.TabIndex = 0;
@@ -44,11 +44,12 @@
             // 
             // txtKeyInsert
             // 
-            txtKeyInsert.Location = new Point(285, 304);
+            txtKeyInsert.Location = new Point(265, 271);
             txtKeyInsert.Name = "txtKeyInsert";
             txtKeyInsert.PasswordChar = '*';
             txtKeyInsert.Size = new Size(260, 23);
             txtKeyInsert.TabIndex = 1;
+            txtKeyInsert.KeyDown += txtKeyInsert_KeyDown;
             // 
             // StartForm
             // 
