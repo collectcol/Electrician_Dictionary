@@ -16,8 +16,9 @@ namespace Electrician_Dictionary.API
         private static OpenAIAPI? API { get; set; }
         private static string? Key { get; set; }
         public static string? result { get; set; }
-        public static StartForm startForm { get; set; }
+        public static StartForm? startForm { get; set; }
 
+        public static int Prompt = 0;
         public static void KeySetting(string key)
         {
             Key = key;
@@ -38,31 +39,35 @@ namespace Electrician_Dictionary.API
             });
             //result = await API.Completions.GetCompletion("hi. you tell me hi?");
             var reply = results.Choices[0].Message;
-            result = reply.Role + " : " + reply.Content;
+            result = reply.Content;
             if (!string.IsNullOrWhiteSpace(result))
             {
                 MessageBox.Show(result.Replace("\n", ""));
                 InformationFind informationFind = new InformationFind();
                 informationFind.Show();
-                startForm.Close();
+                startForm?.Close();
             }
         }
 
         public static async Task<string> ApiSetting(string request)
         {
 
-            string responseMessage = "";
+            string? responseMessage = "";
 
             if (API == null) return responseMessage;
 
             var chat = API.Chat.CreateConversation();
 
-            chat.AppendSystemMessage("You are a professor of electrical engineering. You can answer college students' questions accurately and concisely.");
+
+            // 응답메세지
+            if(Prompt == 0)
+                chat.AppendSystemMessage("You are a professor of electrical engineering. You have to answer the questions of college students by entering examples accurately and specifically.");
             chat.AppendUserInput(request);
 
             await foreach (var res in chat.StreamResponseEnumerableFromChatbotAsync())
             {
-                responseMessage += res;
+                //responseMessage += res;
+                return res;
             }
 
             return responseMessage;

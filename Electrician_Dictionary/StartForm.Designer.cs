@@ -58,8 +58,10 @@
             ClientSize = new Size(800, 450);
             Controls.Add(txtKeyInsert);
             Controls.Add(btnLogin);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormStyle = FormStyles.ActionBar_None;
             Name = "StartForm";
-            Text = "StartForm";
+            Padding = new Padding(3, 24, 3, 3);
             Load += StartForm_Load;
             ResumeLayout(false);
             PerformLayout();

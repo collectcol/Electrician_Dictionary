@@ -45,9 +45,17 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "MaterialSkin.2": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
+            "MaterialSkin.Updated": {
+              "target": "Package",
+              "version": "[0.2.2, )"
+            },
             "OpenAI": {
               "target": "Package",
-              "version": "[1.7.1, )"
+              "version": "[1.7.2, )"
             }
           },
           "imports": [

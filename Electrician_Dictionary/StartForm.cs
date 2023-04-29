@@ -1,5 +1,7 @@
 ﻿using Electrician_Dictionary.API;
 using Electrician_Dictionary.ElecDictionary;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using Microsoft.VisualBasic.Devices;
 using OpenAI_API.Moderation;
 using System;
@@ -14,12 +16,17 @@ using System.Windows.Forms;
 
 namespace Electrician_Dictionary
 {
-    public partial class StartForm : Form
+    public partial class StartForm : MaterialForm
     {
         public bool check = false;
         public StartForm()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
         private void StartForm_Load(object sender, EventArgs e)
         {
