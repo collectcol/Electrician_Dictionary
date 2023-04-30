@@ -28,9 +28,7 @@ namespace Electrician_Dictionary.ElecDictionary
         {
             if (string.IsNullOrWhiteSpace(txtQuestion.Text.ToString())) return;
 
-            string? response = await Link_ChatAPI.ApiSetting(txtQuestion.Text.ToString());
-
-            if (response == null) return;
+            string response = await Link_ChatAPI.ApiSetting(txtQuestion.Text.ToString());
 
             string[] paragraphs = response.Split(new string[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
             StringBuilder formattedResponse = new StringBuilder();
@@ -38,14 +36,25 @@ namespace Electrician_Dictionary.ElecDictionary
             foreach (string paragraph in paragraphs)
             {
                 formattedResponse.AppendLine(paragraph);
-                formattedResponse.AppendLine(); // 문단 사이에 빈 줄 추가
+                formattedResponse.AppendLine();
             }
 
-            txtAnswer.Text = formattedResponse.ToString();
+            foreach (char c in formattedResponse.ToString())
+            {
+                StringSetting(c);
+                await Task.Delay(50);
+            }
+
+            //txtAnswer.Text = formattedResponse.ToString();
             if (Link_ChatAPI.Prompt == 0)
             {
                 Link_ChatAPI.Prompt = 1;
             }
+        }
+
+        private void StringSetting(char c)
+        {
+            txtAnswer.Text += c;
         }
 
 

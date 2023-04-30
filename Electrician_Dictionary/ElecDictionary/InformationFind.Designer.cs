@@ -35,9 +35,10 @@
             // 
             // btnRequest
             // 
-            btnRequest.Location = new Point(291, 390);
+            btnRequest.Location = new Point(416, 650);
+            btnRequest.Margin = new Padding(4, 5, 4, 5);
             btnRequest.Name = "btnRequest";
-            btnRequest.Size = new Size(205, 27);
+            btnRequest.Size = new Size(293, 45);
             btnRequest.TabIndex = 5;
             btnRequest.Text = "질문하기";
             btnRequest.UseVisualStyleBackColor = true;
@@ -45,29 +46,35 @@
             // 
             // txtQuestion
             // 
-            txtQuestion.Location = new Point(12, 12);
+            txtQuestion.Location = new Point(17, 20);
+            txtQuestion.Margin = new Padding(4, 5, 4, 5);
             txtQuestion.Multiline = true;
             txtQuestion.Name = "txtQuestion";
-            txtQuestion.Size = new Size(347, 346);
+            txtQuestion.Size = new Size(494, 574);
             txtQuestion.TabIndex = 3;
+            txtQuestion.WordWrap = false;
             // 
             // txtAnswer
             // 
-            txtAnswer.Location = new Point(441, 12);
+            txtAnswer.Location = new Point(630, 20);
+            txtAnswer.Margin = new Padding(4, 5, 4, 5);
             txtAnswer.Multiline = true;
             txtAnswer.Name = "txtAnswer";
-            txtAnswer.Size = new Size(347, 346);
+            txtAnswer.Size = new Size(494, 574);
             txtAnswer.TabIndex = 4;
             // 
             // InformationFind
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1143, 750);
             Controls.Add(btnRequest);
             Controls.Add(txtQuestion);
             Controls.Add(txtAnswer);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "InformationFind";
+            Padding = new Padding(4, 107, 4, 5);
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "InformationFind";
             Load += InformationFind_Load;
             ResumeLayout(false);

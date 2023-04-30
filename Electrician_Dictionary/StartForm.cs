@@ -26,13 +26,20 @@ namespace Electrician_Dictionary
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue400, Primary.Blue500,
+                Primary.Blue500, Accent.LightBlue200,
+                TextShade.WHITE);
         }
         private void StartForm_Load(object sender, EventArgs e)
         {
-
+            Init();
         }
 
+        private void Init()
+        {
+            cmbPrompt.Items.Add(new string[] { "1", "전기공학 대학교수" });
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             LinkStart();
@@ -40,13 +47,20 @@ namespace Electrician_Dictionary
 
         private void LinkStart()
         {
-            if (string.IsNullOrWhiteSpace(txtKeyInsert.Text))
+            if (string.IsNullOrWhiteSpace(txtKeyInsert.Text.ToString()))
             {
                 MessageBox.Show("Key값을 입력해주세요");
                 return;
             }
 
             Link_ChatAPI.KeySetting(txtKeyInsert.Text);
+
+            //if (Link_ChatAPI.API == null)
+            //{
+            //    MessageBox.Show("연결되지 않았습니다.");
+            //    return;
+            //}
+
             Link_ChatAPI.Link();
             Link_ChatAPI.startForm = this;
         }

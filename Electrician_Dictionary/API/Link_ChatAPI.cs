@@ -13,7 +13,7 @@ namespace Electrician_Dictionary.API
 {
     internal static class Link_ChatAPI
     {
-        private static OpenAIAPI? API { get; set; }
+        public static OpenAIAPI? API { get; set; }
         private static string? Key { get; set; }
         public static string? result { get; set; }
         public static StartForm? startForm { get; set; }
@@ -66,8 +66,7 @@ namespace Electrician_Dictionary.API
 
             await foreach (var res in chat.StreamResponseEnumerableFromChatbotAsync())
             {
-                //responseMessage += res;
-                return res;
+                responseMessage += res;
             }
 
             return responseMessage;
