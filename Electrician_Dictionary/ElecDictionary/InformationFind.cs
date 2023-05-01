@@ -30,22 +30,12 @@ namespace Electrician_Dictionary.ElecDictionary
 
             string response = await Link_ChatAPI.ApiSetting(txtQuestion.Text.ToString());
 
-            string[] paragraphs = response.Split(new string[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
-            StringBuilder formattedResponse = new StringBuilder();
-
-            foreach (string paragraph in paragraphs)
-            {
-                formattedResponse.AppendLine(paragraph);
-                formattedResponse.AppendLine();
-            }
-
-            foreach (char c in formattedResponse.ToString())
+            foreach (char c in response)
             {
                 StringSetting(c);
                 await Task.Delay(50);
             }
 
-            //txtAnswer.Text = formattedResponse.ToString();
             if (Link_ChatAPI.Prompt == 0)
             {
                 Link_ChatAPI.Prompt = 1;
@@ -55,6 +45,10 @@ namespace Electrician_Dictionary.ElecDictionary
         private void StringSetting(char c)
         {
             txtAnswer.Text += c;
+            if (c.Equals('.'))
+            {
+                txtAnswer.Text += Environment.NewLine;
+            }
         }
 
 

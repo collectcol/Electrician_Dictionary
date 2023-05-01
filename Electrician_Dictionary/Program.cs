@@ -19,7 +19,6 @@ namespace Electrician_Dictionary
 
             
             Application.Run(new StartForm());
-
             InformationFind informationFind = new InformationFind();
             Application.Run(informationFind);
         }

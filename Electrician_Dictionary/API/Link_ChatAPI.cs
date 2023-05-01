@@ -1,4 +1,5 @@
 ﻿using Electrician_Dictionary.ElecDictionary;
+using Electrician_Dictionary.Information;
 using OpenAI_API;
 using OpenAI_API.Chat;
 using OpenAI_API.Models;
@@ -17,8 +18,10 @@ namespace Electrician_Dictionary.API
         private static string? Key { get; set; }
         public static string? result { get; set; }
         public static StartForm? startForm { get; set; }
-
+        public static bool ResultYN { get; set; }
         public static int Prompt = 0;
+
+        public static ChatGPT_Info info { get; set; }
         public static void KeySetting(string key)
         {
             Key = key;
@@ -26,26 +29,40 @@ namespace Electrician_Dictionary.API
 
         async public static void Link()
         {
-            API = new OpenAIAPI(Key);
-            var results = await API.Chat.CreateChatCompletionAsync(new OpenAI_API.Chat.ChatRequest()
+            
+            try
             {
-                Model = Model.ChatGPTTurbo,
-                Temperature = 0.5f,
-                MaxTokens = 100,
-                Messages = new ChatMessage[]
+                API = new OpenAIAPI(Key);
+                var results = await API.Chat.CreateChatCompletionAsync(new OpenAI_API.Chat.ChatRequest()
+                {
+                    Model = Model.ChatGPTTurbo,
+                    Temperature = 0.5f,
+                    MaxTokens = 100,
+                    Messages = new ChatMessage[]
                 {
                     new ChatMessage(ChatMessageRole.User, "Hello!")
                 }
-            });
-            //result = await API.Completions.GetCompletion("hi. you tell me hi?");
-            var reply = results.Choices[0].Message;
-            result = reply.Content;
-            if (!string.IsNullOrWhiteSpace(result))
+                });
+                //result = await API.Completions.GetCompletion("hi. you tell me hi?");
+                var reply = results.Choices[0].Message;
+                result = reply.Content;
+                if (!string.IsNullOrWhiteSpace(result))
+                {
+                    MessageBox.Show(result.Replace("\n", ""));
+
+                    InformationFind informationFind = new InformationFind();
+                    
+
+                    informationFind.Show();
+                    ResultYN = true;
+                    startForm?.Close();
+                }
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(result.Replace("\n", ""));
-                InformationFind informationFind = new InformationFind();
-                informationFind.Show();
-                startForm?.Close();
+                MessageBox.Show($"{ex.Message}");
+                ResultYN = false;
+                return;
             }
         }
 
@@ -72,6 +89,5 @@ namespace Electrician_Dictionary.API
             return responseMessage;
 
         }
-        
     }
 }

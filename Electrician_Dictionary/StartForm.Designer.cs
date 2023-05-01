@@ -29,53 +29,53 @@
         private void InitializeComponent()
         {
             flowLayoutPanel1 = new FlowLayoutPanel();
-            panel1 = new Panel();
+            panelPromptChoice = new Panel();
             label1 = new Label();
             cmbPrompt = new MaterialSkin.Controls.MaterialComboBox();
-            panel2 = new Panel();
+            panelOutPutRanguage = new Panel();
             radioEnglish = new MaterialSkin.Controls.MaterialRadioButton();
             radioKorean = new MaterialSkin.Controls.MaterialRadioButton();
             label2 = new Label();
-            panel3 = new Panel();
+            panelChatFormSetting = new Panel();
             radioTwoForm = new MaterialSkin.Controls.MaterialRadioButton();
             radioOneForm = new MaterialSkin.Controls.MaterialRadioButton();
             label3 = new Label();
             listCurrnetFile = new MaterialSkin.Controls.MaterialListView();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            panel4 = new Panel();
+            panelCurrentFileList = new Panel();
             label4 = new Label();
             txtKeyInsert = new MaterialSkin.Controls.MaterialTextBox2();
             btnLogin = new MaterialSkin.Controls.MaterialButton();
             flowLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
+            panelPromptChoice.SuspendLayout();
+            panelOutPutRanguage.SuspendLayout();
+            panelChatFormSetting.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
-            panel4.SuspendLayout();
+            panelCurrentFileList.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(panel1);
-            flowLayoutPanel1.Controls.Add(panel2);
-            flowLayoutPanel1.Controls.Add(panel3);
+            flowLayoutPanel1.Controls.Add(panelPromptChoice);
+            flowLayoutPanel1.Controls.Add(panelOutPutRanguage);
+            flowLayoutPanel1.Controls.Add(panelChatFormSetting);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(3, 88);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(704, 296);
             flowLayoutPanel1.TabIndex = 5;
             // 
-            // panel1
+            // panelPromptChoice
             // 
-            panel1.BorderStyle = BorderStyle.Fixed3D;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(cmbPrompt);
-            panel1.Location = new Point(15, 15);
-            panel1.Margin = new Padding(15);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(399, 118);
-            panel1.TabIndex = 0;
+            panelPromptChoice.BorderStyle = BorderStyle.Fixed3D;
+            panelPromptChoice.Controls.Add(label1);
+            panelPromptChoice.Controls.Add(cmbPrompt);
+            panelPromptChoice.Location = new Point(15, 15);
+            panelPromptChoice.Margin = new Padding(15);
+            panelPromptChoice.Name = "panelPromptChoice";
+            panelPromptChoice.Size = new Size(399, 118);
+            panelPromptChoice.TabIndex = 0;
             // 
             // label1
             // 
@@ -108,17 +108,17 @@
             cmbPrompt.StartIndex = 0;
             cmbPrompt.TabIndex = 1;
             // 
-            // panel2
+            // panelOutPutRanguage
             // 
-            panel2.BorderStyle = BorderStyle.Fixed3D;
-            panel2.Controls.Add(radioEnglish);
-            panel2.Controls.Add(radioKorean);
-            panel2.Controls.Add(label2);
-            panel2.Location = new Point(444, 15);
-            panel2.Margin = new Padding(15);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(237, 118);
-            panel2.TabIndex = 1;
+            panelOutPutRanguage.BorderStyle = BorderStyle.Fixed3D;
+            panelOutPutRanguage.Controls.Add(radioEnglish);
+            panelOutPutRanguage.Controls.Add(radioKorean);
+            panelOutPutRanguage.Controls.Add(label2);
+            panelOutPutRanguage.Location = new Point(444, 15);
+            panelOutPutRanguage.Margin = new Padding(15);
+            panelOutPutRanguage.Name = "panelOutPutRanguage";
+            panelOutPutRanguage.Size = new Size(237, 118);
+            panelOutPutRanguage.TabIndex = 1;
             // 
             // radioEnglish
             // 
@@ -161,17 +161,17 @@
             label2.TabIndex = 1;
             label2.Text = "OutPut_Ranguage";
             // 
-            // panel3
+            // panelChatFormSetting
             // 
-            panel3.BorderStyle = BorderStyle.Fixed3D;
-            panel3.Controls.Add(radioTwoForm);
-            panel3.Controls.Add(radioOneForm);
-            panel3.Controls.Add(label3);
-            panel3.Location = new Point(15, 163);
-            panel3.Margin = new Padding(15);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(305, 118);
-            panel3.TabIndex = 2;
+            panelChatFormSetting.BorderStyle = BorderStyle.Fixed3D;
+            panelChatFormSetting.Controls.Add(radioTwoForm);
+            panelChatFormSetting.Controls.Add(radioOneForm);
+            panelChatFormSetting.Controls.Add(label3);
+            panelChatFormSetting.Location = new Point(15, 163);
+            panelChatFormSetting.Margin = new Padding(15);
+            panelChatFormSetting.Name = "panelChatFormSetting";
+            panelChatFormSetting.Size = new Size(305, 118);
+            panelChatFormSetting.TabIndex = 2;
             // 
             // radioTwoForm
             // 
@@ -235,23 +235,23 @@
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AutoSize = true;
-            flowLayoutPanel2.Controls.Add(panel4);
+            flowLayoutPanel2.Controls.Add(panelCurrentFileList);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(3, 384);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(704, 393);
             flowLayoutPanel2.TabIndex = 7;
             // 
-            // panel4
+            // panelCurrentFileList
             // 
-            panel4.BorderStyle = BorderStyle.Fixed3D;
-            panel4.Controls.Add(listCurrnetFile);
-            panel4.Controls.Add(label4);
-            panel4.Location = new Point(15, 15);
-            panel4.Margin = new Padding(15);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(288, 363);
-            panel4.TabIndex = 7;
+            panelCurrentFileList.BorderStyle = BorderStyle.Fixed3D;
+            panelCurrentFileList.Controls.Add(listCurrnetFile);
+            panelCurrentFileList.Controls.Add(label4);
+            panelCurrentFileList.Location = new Point(15, 15);
+            panelCurrentFileList.Margin = new Padding(15);
+            panelCurrentFileList.Name = "panelCurrentFileList";
+            panelCurrentFileList.Size = new Size(288, 363);
+            panelCurrentFileList.TabIndex = 7;
             // 
             // label4
             // 
@@ -291,6 +291,7 @@
             txtKeyInsert.TextAlign = HorizontalAlignment.Left;
             txtKeyInsert.TrailingIcon = null;
             txtKeyInsert.UseSystemPasswordChar = true;
+            txtKeyInsert.KeyDown += txtKeyInsert_KeyDown;
             // 
             // btnLogin
             // 
@@ -329,37 +330,38 @@
             Padding = new Padding(3, 88, 4, 5);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Electrician_Dictionary";
+            FormClosed += StartForm_FormClosed;
             Load += StartForm_Load;
             flowLayoutPanel1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            panelPromptChoice.ResumeLayout(false);
+            panelPromptChoice.PerformLayout();
+            panelOutPutRanguage.ResumeLayout(false);
+            panelOutPutRanguage.PerformLayout();
+            panelChatFormSetting.ResumeLayout(false);
+            panelChatFormSetting.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            panelCurrentFileList.ResumeLayout(false);
+            panelCurrentFileList.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private FlowLayoutPanel flowLayoutPanel1;
-        private Panel panel1;
+        private Panel panelPromptChoice;
         private Label label1;
         private MaterialSkin.Controls.MaterialComboBox cmbPrompt;
-        private Panel panel2;
+        private Panel panelOutPutRanguage;
         private Label label2;
         private MaterialSkin.Controls.MaterialRadioButton radioEnglish;
         private MaterialSkin.Controls.MaterialRadioButton radioKorean;
-        private Panel panel3;
+        private Panel panelChatFormSetting;
         private MaterialSkin.Controls.MaterialRadioButton radioTwoForm;
         private MaterialSkin.Controls.MaterialRadioButton radioOneForm;
         private Label label3;
         private MaterialSkin.Controls.MaterialListView listCurrnetFile;
         private FlowLayoutPanel flowLayoutPanel2;
-        private Panel panel4;
+        private Panel panelCurrentFileList;
         private Label label4;
         private MaterialSkin.Controls.MaterialTextBox2 txtKeyInsert;
         private MaterialSkin.Controls.MaterialButton btnLogin;

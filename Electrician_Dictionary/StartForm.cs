@@ -1,5 +1,7 @@
 ﻿using Electrician_Dictionary.API;
 using Electrician_Dictionary.ElecDictionary;
+using Electrician_Dictionary.Enum;
+using Electrician_Dictionary.Information;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Microsoft.VisualBasic.Devices;
@@ -38,29 +40,59 @@ namespace Electrician_Dictionary
 
         private void Init()
         {
-            cmbPrompt.Items.Add(new string[] { "1", "전기공학 대학교수" });
+            var itemList = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>(PromptEnum.Electrical_Engineering.ToString(), "전기공학 교수"),
+                new KeyValuePair<string, string>(PromptEnum.English.ToString(), "영어전공 교수"),
+                new KeyValuePair<string, string>(PromptEnum.Computer_Science.ToString(), "컴퓨터공학 교수")
+            };
+
+            cmbPrompt.DataSource = itemList;
+            cmbPrompt.DisplayMember = "Value";
+            cmbPrompt.ValueMember = "Key";
+            cmbPrompt.SelectedIndex = 0;
+
+            radioKorean.Checked = true;
+            radioTwoForm.Checked = true;
+        }
+
+        private string RadioButtonGetValue(Control collection)
+        {
+            string value = "";
+            var controls = collection.Controls;
+
+            foreach (var control in controls)
+            {
+                var radiobutton = control as RadioButton;
+                if (radiobutton != null && radiobutton.Checked)
+                {
+                    value = radiobutton.Text;
+                }
+            }
+
+            return value;
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             LinkStart();
         }
 
+        private ChatGPT_Info ChatGPT_InsertInfo()
+        {
+            ChatGPT_Info info = new ChatGPT_Info();
+            info.prompt = cmbPrompt.SelectedValue.ToString();
+            info.ranguage = RadioButtonGetValue(panelOutPutRanguage);
+            info.chatFormSetting = RadioButtonGetValue(panelChatFormSetting);
+
+            return info;
+        }
+
         private void LinkStart()
         {
-            if (string.IsNullOrWhiteSpace(txtKeyInsert.Text.ToString()))
-            {
-                MessageBox.Show("Key값을 입력해주세요");
-                return;
-            }
+            ChatGPT_InsertInfo();
 
+            Link_ChatAPI.info = ChatGPT_InsertInfo();
             Link_ChatAPI.KeySetting(txtKeyInsert.Text);
-
-            //if (Link_ChatAPI.API == null)
-            //{
-            //    MessageBox.Show("연결되지 않았습니다.");
-            //    return;
-            //}
-
             Link_ChatAPI.Link();
             Link_ChatAPI.startForm = this;
         }
@@ -70,6 +102,14 @@ namespace Electrician_Dictionary
             if (e.KeyCode == Keys.Enter)
             {
                 LinkStart();
+            }
+        }
+
+        private void StartForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!Link_ChatAPI.ResultYN)
+            {
+                Application.Exit();
             }
         }
     }
