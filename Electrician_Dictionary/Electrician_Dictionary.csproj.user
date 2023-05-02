@@ -4,6 +4,9 @@
     <Compile Update="ElecDictionary\InformationFind.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ElecDictionary\InformationFind2.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>

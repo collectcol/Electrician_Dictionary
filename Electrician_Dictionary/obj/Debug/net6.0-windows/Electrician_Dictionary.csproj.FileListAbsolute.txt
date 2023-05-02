@@ -31,3 +31,4 @@ C:\MyFolder\Projects\Winform_Projects\Electrician_Dictionary\Electrician_Diction
 C:\MyFolder\Projects\Winform_Projects\Electrician_Dictionary\Electrician_Dictionary\Electrician_Dictionary\obj\Debug\net6.0-windows\ref\Electrician_Dictionary.dll
 C:\MyFolder\Projects\Winform_Projects\Electrician_Dictionary\Electrician_Dictionary\Electrician_Dictionary\bin\Debug\net6.0-windows\MaterialSkin.dll
 C:\MyFolder\Projects\Winform_Projects\Electrician_Dictionary\Electrician_Dictionary\Electrician_Dictionary\obj\Debug\net6.0-windows\Electrician_Dictionary.Properties.Resources.resources
+C:\MyFolder\Projects\Winform_Projects\Electrician_Dictionary\Electrician_Dictionary\Electrician_Dictionary\obj\Debug\net6.0-windows\Electrician_Dictionary.ElecDictionary.InformationFind2.resources

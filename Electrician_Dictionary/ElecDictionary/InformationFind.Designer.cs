@@ -53,6 +53,7 @@
             txtQuestion.Size = new Size(494, 574);
             txtQuestion.TabIndex = 3;
             txtQuestion.WordWrap = false;
+            txtQuestion.KeyDown += txtQuestion_KeyDown;
             // 
             // txtAnswer
             // 
@@ -75,7 +76,6 @@
             Name = "InformationFind";
             Padding = new Padding(4, 107, 4, 5);
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "InformationFind";
             Load += InformationFind_Load;
             ResumeLayout(false);
             PerformLayout();

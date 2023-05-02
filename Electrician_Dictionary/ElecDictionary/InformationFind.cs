@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Electrician_Dictionary.ElecDictionary
 {
     public partial class InformationFind : MaterialForm
     {
+        private List<string> requestText = new List<string>();
         public InformationFind()
         {
             InitializeComponent();
@@ -55,6 +57,23 @@ namespace Electrician_Dictionary.ElecDictionary
         private void btnRequest_Click(object sender, EventArgs e)
         {
             response();
+            txtAnswer.Text += "///" + Environment.NewLine;
+
+        }
+
+        private void txtQuestion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnRequest.PerformClick();
+            }
+            else if ((e.KeyCode == Keys.Enter) && (e.Control || e.Shift))
+            {
+                int index = txtQuestion.SelectionStart;
+                txtQuestion.Text = txtQuestion.Text.Insert(index, Environment.NewLine);
+                txtQuestion.SelectionStart = index + Environment.NewLine.Length;
+                e.Handled = true;
+            }
         }
     }
 }
